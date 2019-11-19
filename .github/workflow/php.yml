@@ -1,21 +1,21 @@
-name: PHP Composer
+name: CI
 
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Validate composer.json and composer.lock
-            run: composer validate
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Validate composer.json and composer.lock
+        run: composer validate
 
-        - name: Install dependencies
-            run: composer install --prefer-dist --no-progress --no-suggest
+    - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-    php-cs-fixer:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Check code style
-            run: 
-            php composer.phar install --dev
-            php -d memory_limit=-1 vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no --diff-format udiff
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check code style
+        run: 
+        php composer.phar install --dev
+        php -d memory_limit=-1 vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no --diff-format udiff
