@@ -1,0 +1,61 @@
+.bootstrap .page-head.custom-tab {
+    top: 8rem !important;
+}
+.bootstrap .page-head .page-head-tabs ul {
+    border-bottom: 1px;
+    background: #ffffff;
+}
+.bootstrap .page-head .page-head-tabs ul {
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: 400;
+    border-bottom: 0;
+}
+.bootstrap .nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.bootstrap .page-head .page-head-tabs {
+    position: relative;
+    width: 100%;
+    left: 210px;
+    top: 0px;
+}
+.bootstrap .page-head .page-head-tabs li {
+    display: inline-block;
+}
+
+.bootstrap .page-head .page-head-tabs li a{
+    color: #6c868e;
+    display: block;
+    padding: 15px 20px;
+    padding: .9375rem 1.25rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    float: none;
+    padding: 16px 20px 28px;
+    padding: 1.1rem 1.25rem 1.7rem;
+}
+.nav li.active{
+    border-bottom: 3px solid #25b9d7;
+    border-bottom: .1875rem solid #25b9d7;
+    background: #f3f9fb;
+    color: #000000;
+}
+
+
+/** 
+    * Responsive
+**/
+@media screen and (max-width: 1039px) {
+    .bootstrap .page-head.custom-tab {
+        margin-top: -1rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .bootstrap .page-head .page-head-tabs ul {
+        padding-left: 50px;
+    }
+}

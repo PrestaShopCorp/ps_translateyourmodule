@@ -1,0 +1,172 @@
+
+/**
+
+    MODAL
+
+**/
+
+#drop_zone .center-img img {
+    display: block;
+    margin: 1rem auto 2rem auto;
+}
+#drop_zone b {
+    font-weight: bolder;
+    color: #363a41;
+    margin: 0;
+    font-size: 14px;
+    font-size: .875rem;
+    margin-bottom: 7px;
+    display: block;
+}
+#drop_zone p {
+    font-size: 13px;
+    font-size: .8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #363a41;
+}
+#drop_zone .row.row-buttons {
+    margin-top: 1rem;
+}
+#drop_zone .icon-external-link {
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 6px;
+    display:  inline-block;
+    vertical-align: middle;
+}
+#drop_zone .alert {
+    margin-top: 1.5rem;
+}
+#drop_zone .download_child_theme_error {
+    margin-top: 0;
+    display: none;
+}
+#drop_zone .row.row-buttons .btn{
+    white-space: initial !important;
+}
+form#importDropzoneAdvisorImg {
+    border: 2px dashed #6c868e;
+}
+.dropzone {
+    min-height: 150px;
+    border: 2px dotted rgba(0,0,0,0.3);
+    background: white;
+    padding: 20px 20px;
+}
+.dropzone.dz-clickable * {
+    cursor: default;
+}
+.import-start-icon {
+    font-size: 70px;
+    color: #CECCCC;
+}
+.import-start {
+    text-align: center;
+}
+.import-start-footer-text {
+    font-size: smaller;
+    font-style: italic;
+    color: #CECCCC;
+}
+.btn-outline-secondary {
+    border: 1px solid #8a8a8a !important;
+}
+a.btn-outline-secondary {
+    color: #8a8a8a;
+}
+.row-buttons .btn {
+    margin-bottom: 10px;
+}
+
+/**
+    LOADER
+*/
+#drop_zone .btn-primary.js-loader {
+    position: relative;
+    display: none;
+}
+/**
+    MODAL
+*/
+form#importDropzoneAdvisorImg {
+    border: 2px dashed #6c868e;
+}
+
+.dz-preview {
+    display: none !important;
+}
+#drop_zone  .import-failure,
+#drop_zone  .import-failure-details,
+#drop_zone  .import-success {
+    display: none;
+    text-align: center;
+}
+#drop_zone  .import-failure-details {
+    text-align: left;
+}
+#drop_zone  .import-failure-details p {
+    font-size: 12px;
+    font-size: 0.8rem;
+}
+#drop_zone  .import-failure-details li{
+    line-height: 18px;
+}
+#drop_zone  .import-start-footer-text {
+    color: #CECCCC !important;
+    font-size: 0.8rem !important;
+}
+#drop_zone  .import-failure {
+    font-size: 0.8rem;
+    line-height: 2rem;
+}
+#drop_zone  .import-failure .import-failure-icon {
+    color: #c45c67;
+    font-size: 70px;
+}
+#drop_zone  .import-failure .import-failure-msg {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+#drop_zone  .import-success .import-success-icon {
+    color: #1c8ca3;
+    font-size: 70px;
+}
+#drop_zone  {
+    overflow: hidden;
+}
+#drop_zone  .modal-content {
+    border-radius: 0 !important;
+}
+#drop_zone  h4 {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+#drop_zone  .modal-header,
+#drop_zone  .modal-footer {
+    border: 0 !important;
+}
+#drop_zone  .modal-header {
+    position: relative;
+}
+#drop_zone  .modal-header .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+}
+#drop_zone  .modal-header .close span {
+    color: #000;
+}
+#drop_zone  p{
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #363a41;
+}
+#drop_zone  .modal-footer .action_available {
+    text-transform: initial;
+}
