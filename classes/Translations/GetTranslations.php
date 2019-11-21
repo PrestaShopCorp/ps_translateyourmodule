@@ -70,20 +70,22 @@ class GetTranslations
             preg_match_all(self::REGEX_CLASS, $fileContent, $matchesClass);
             preg_match_all(self::REGEX_ADMIN_CLASS, $fileContent, $matchesAdminClass);
 
-            /**
-             * TODO : Do not get domain in sentence
-             */
+            $searchDomainInSentence = '\', \'' . $filename;
 
             if (!empty($matchesTpl[1])) {
-                $translations[$filename]['matches'] = array_unique($matchesTpl[1]);
+                $sentence = array_unique($matchesTpl[1]);
+                $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
             }
             
             if (!empty($matchesClass[1])) {
-                $translations[$filename]['matches'] = array_unique($matchesClass[1]);
+                $sentence = array_unique($matchesClass[1]);
+                $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
+                
             }
             
             if (!empty($matchesAdminClass[1])) {
-                $translations[$filename]['matches'] = array_unique($matchesAdminClass[1]);
+                $sentence = array_unique($matchesAdminClass[1]);
+                $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
             }
         }
 
