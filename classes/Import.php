@@ -129,7 +129,8 @@ class Import
                 }
 
                 $sentenceCode = $translationsCode->getOneTranslationCode($translations['filesname'][$key], $translations['en'][$key], $moduleName);
-                $sentenceToWrite = str_replace("'", "\'", $sentence);
+                // replace : ' to \'   but not   \' to \\'
+                $sentenceToWrite = preg_replace('/(?<!\\\\)\'/', '\\\'', $sentence);
                 $translationsToWriteInFile[$lang] .= self::CODE_BEGINS . $sentenceCode . self::CODE_ENDS . self::SENTENCE_BEGINS . $sentenceToWrite . self::SENTENCE_ENDS;
             }
         }
