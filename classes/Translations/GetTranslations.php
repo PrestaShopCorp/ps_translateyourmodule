@@ -126,6 +126,12 @@ class GetTranslations
             foreach ($translations['translations'] as &$m) {
                 $m['languages'][$isoLang] = [];
                 foreach ($m['matches'] as $id => $sentence) {
+                    $locale = \Language::getLocaleByIso($isoLang);
+
+                    if (false === $locale) {
+                        continue;
+                    }
+
                     // get the sentence translation
                     $m['languages'][$isoLang][] = $translate->getModuleTranslation(
                         $moduleInstance,
@@ -133,7 +139,7 @@ class GetTranslations
                         $this->getDomain($sentence, $m['codes'][$id]),
                         null,
                         false,
-                        \Language::getLocaleByIso($isoLang),
+                        $locale,
                         true
                     );
                 }
