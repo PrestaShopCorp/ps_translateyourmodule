@@ -105,7 +105,7 @@ class GetTranslations
      */
     public function fillWithExisting($translations)
     {
-        $translate = new TranslateOverride();
+        $translate = new TranslateInheritance();
         $checkFile = new CheckFile();
 
         $moduleInstance = \Module::getInstanceByName($this->getModuleName());
@@ -141,7 +141,7 @@ class GetTranslations
                         false,
                         $locale,
                         true
-                    );                    
+                    );
                 }
             }
         }
