@@ -23,8 +23,6 @@
         ]
     },
     "require": {
-        "ramsey/uuid": "^3.8",
-        "vlucas/phpdotenv": "^3.4",
         "phpoffice/phpspreadsheet": "^1.8"
     }
 }
