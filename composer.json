@@ -22,6 +22,7 @@
         ]
     },
     "require": {
-        "phpoffice/phpspreadsheet": "^1.8"
+        "phpoffice/phpspreadsheet": "^1.8",
+        "friendsofphp/php-cs-fixer": "^2.16"
     }
 }
