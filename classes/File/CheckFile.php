@@ -42,12 +42,12 @@ class CheckFile
             return false;
         }
 
-        // We don't take index file
+        // Default language is EN, we don't need it
         if (self::INITIAL_LANGUAGE === $fileName) {
             return false;
         }
 
-        // Default language is EN, we don't need it
+        // We don't take index file
         if (self::INDEX_FILE_NAME === $fileName) {
             return false;
         }
