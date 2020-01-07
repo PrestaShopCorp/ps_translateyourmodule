@@ -21,21 +21,21 @@
     <div class="panel-heading">
         <i class="material-icons">attach_file</i>{l s='Import translations' mod='ps_translateyourmodule'}
     </div>
-	<div class="panel-body">
-    	<div class="row">
-			<div class="col-lg-2">
-				<img class="vertical-align" src="{$imagePath}international.svg"/>
-			</div>
-			<div class="col-lg-4">
-				<p>{l s='To import your translation file, the document must respect the following rules:' mod='ps_translateyourmodule'}</p>
-				<ul>
-					<li><i class="material-icons">keyboard_arrow_right</i>{l s='The document name must be MODULE_TECHNICAL_NAME.xlsx' mod='ps_translateyourmodule'}</li>
-					<li><i class="material-icons">keyboard_arrow_right</i>{l s='Your Translations folder must have sufficient rights (writable / executable)' mod='ps_translateyourmodule'}</li>
-				</ul>
-			</div>
-			<div class="col-lg-5 col-lg-offset-1">
-				{include file="./dropzone.tpl"}
-			</div>
-		</div>
-	</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <img class="vertical-align" src="{$imagePath}international.svg"/>
+            </div>
+            <div class="col-lg-4">
+                <p>{l s='To import your translation file, the document must respect the following rules:' mod='ps_translateyourmodule'}</p>
+                <ul>
+                    <li><i class="material-icons">keyboard_arrow_right</i>{l s='The document name must be MODULE_TECHNICAL_NAME.xlsx' mod='ps_translateyourmodule'}</li>
+                    <li><i class="material-icons">keyboard_arrow_right</i>{l s='Your Translations folder must have sufficient rights (writable / executable)' mod='ps_translateyourmodule'}</li>
+                </ul>
+            </div>
+            <div class="col-lg-5 col-lg-offset-1">
+                {include file="./dropzone.tpl"}
+            </div>
+        </div>
+    </div>
 </div>

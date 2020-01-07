@@ -18,10 +18,10 @@
  *}
 
 <div class="bootstrap" id="ps_translateyourmodule_configuration">
-	<!-- Module content -->
-	<div id="modulecontent" class="tab-pane">
-		{include file="./tabs/listing/import.tpl"}
-		{include file="./tabs/listing/errors.tpl"}
-		{include file="./tabs/listing/listing_export.tpl"}
-	</div>
+    <!-- Module content -->
+    <div id="modulecontent" class="tab-pane">
+        {include file="./tabs/listing/import.tpl"}
+        {include file="./tabs/listing/errors.tpl"}
+        {include file="./tabs/listing/listing_export.tpl"}
+    </div>
 </div>
