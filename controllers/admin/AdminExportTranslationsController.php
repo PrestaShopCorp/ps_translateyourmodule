@@ -35,7 +35,7 @@ class AdminExportTranslationsController extends ModuleAdminController
         
         if (empty($moduleName)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => $this->module::FORM_ERROR_CODES['modulename'])
+                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename'])
             ));
         }
 
@@ -44,7 +44,7 @@ class AdminExportTranslationsController extends ModuleAdminController
 
         if (false === is_array($moduleStringsToTranslate)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => $this->module::FORM_ERROR_CODES['translation'])
+                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation'])
             ));
         }
 
@@ -60,7 +60,7 @@ class AdminExportTranslationsController extends ModuleAdminController
 
         if (false === $formatedTranslatedArray) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => $this->module::FORM_ERROR_CODES['translation'])
+                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation'])
             ));
         }
 

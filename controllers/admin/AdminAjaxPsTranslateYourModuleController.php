@@ -34,7 +34,7 @@ class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
     public function ajaxProcessGetModuleTranslationLink()
     {
         $moduleName = \Tools::getValue('module', $this->module->name);
-        $lang = \Tools::getValue('lang', $this->module::DEFAULT_LANGUAGE_ISO);
+        $lang = \Tools::getValue('lang', ps_translateyourmodule::DEFAULT_LANGUAGE_ISO);
 
         $urlParams = array(
             'type' => 'modules',
@@ -54,9 +54,9 @@ class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
     {
         $uploadedFile = \Tools::fileAttachment('file');
         $validateFile = new ValidateFile();
-        $moduleName = str_replace($this->module::EXPECTED_EXTENSION, '', $uploadedFile['name']);
+        $moduleName = str_replace(ps_translateyourmodule::EXPECTED_EXTENSION, '', $uploadedFile['name']);
 
-        if (false === $validateFile->validateMimeType($uploadedFile['mime'], $this->module::MIME_TYPE_EXPECTED_XLSX)) {
+        if (false === $validateFile->validateMimeType($uploadedFile['mime'], ps_translateyourmodule::MIME_TYPE_EXPECTED_XLSX)) {
             throw new \PrestaShopException('Mimetype is not valid');
         }
 

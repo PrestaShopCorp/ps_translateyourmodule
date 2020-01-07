@@ -61,7 +61,7 @@ class AdminDownloadZipController extends ModuleAdminController
         
         if (!$moduleName) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => $this->module::FORM_ERROR_CODES['modulename'])
+                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename'])
             ));
         }
 
@@ -72,7 +72,7 @@ class AdminDownloadZipController extends ModuleAdminController
         
         if (false === $getZip->createZip()) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => $this->module::FORM_ERROR_CODES['ziperror'])
+                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['ziperror'])
             ));
         }
 
