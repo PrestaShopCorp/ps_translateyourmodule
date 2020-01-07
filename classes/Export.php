@@ -90,7 +90,7 @@ class Export
 
         $sheet->setCellValue('A1', 'Module filename');
         $sheet->setCellValue('B1', 'From module');
-    
+
         // If multiple languages in $languages
         if ($totalLanguages > 0) {
             $cellAlphabetForLaguages = range('C', 'Z');
@@ -119,7 +119,7 @@ class Export
         // As header takes 1 line, the offsets begin at line 2
         $lineOffset = 2;
         $mainLineOffset = 2;
-         
+
         foreach ($translations as $domainName => $domainTranslations) {
 
             // No translations
@@ -165,7 +165,7 @@ class Export
         header('Content-Type: application/vnd.ms-excel'); // generate excel file
         header('Content-Disposition: attachment;filename="'. $this->getFileName() . $fileType . '"');
         header('Cache-Control: max-age=0');
-        
+
         $writer->save('php://output');	// download file
     }
 

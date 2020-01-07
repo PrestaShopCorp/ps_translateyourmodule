@@ -131,7 +131,7 @@ class ps_translateyourmodule extends Module
      *
      * @return string
      */
-    public function getModulePageConfiguration(array $error = []
+    public function getModulePageConfiguration(array $error = [])
     {
         $parameters = array_merge(
             ['configure' => $this->name],

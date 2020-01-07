@@ -58,7 +58,7 @@ class Zip
         $zip = new \ZipArchive();
 
         //create the file and throw the error if unsuccessful
-        if ($zip->open($archiveName, \ZIPARCHIVE::CREATE)!==true) {
+        if ($zip->open($archiveName, \ZIPARCHIVE::CREATE) !== true) {
             return false;
         }
 
@@ -104,7 +104,7 @@ class Zip
         header('Content-length: ' . filesize($archiveName));
         header('Pragma: no-cache');
         header('Expires: 0');
-        
+
         readfile($archiveName);
     }
 
@@ -122,7 +122,7 @@ class Zip
         }
 
         $folderFiles = scandir($folderToZip);
-        $removeFilesParasite = array('.', '..', 'index.php');
+        $removeFilesParasite = ['.', '..', 'index.php'];
 
         foreach ($folderFiles as $key => $value) {
             if (false !== array_search($value, $removeFilesParasite)) {
