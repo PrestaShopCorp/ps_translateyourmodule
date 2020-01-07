@@ -27,14 +27,15 @@
 namespace PrestaShop\Module\PsTranslateYourModule\Translations;
 
 /**
- * Class TranslateCore.
+ * Override TranslateCore.
+ * Avoids using the latest translation of a sentence in another language if it does not exist in this language
  *
  * @since 1.5.0
  */
 class TranslateOverride
 {
     /**
-     * Get a translation for a module.
+     * Get a translation for a module. 
      *
      * @param string|Module $module
      * @param string $originalString
