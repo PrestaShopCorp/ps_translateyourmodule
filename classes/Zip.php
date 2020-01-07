@@ -99,10 +99,10 @@ class Zip
     {
         $archiveName = $this->getArchiveName();
 
-        header('Content-type: application/zip'); 
+        header('Content-type: application/zip');
         header('Content-Disposition: attachment; filename=' . $archiveName);
         header('Content-length: ' . filesize($archiveName));
-        header('Pragma: no-cache'); 
+        header('Pragma: no-cache');
         header('Expires: 0');
         
         readfile($archiveName);

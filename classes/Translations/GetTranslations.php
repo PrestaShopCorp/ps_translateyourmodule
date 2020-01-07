@@ -80,7 +80,6 @@ class GetTranslations
             if (!empty($matchesClass[1])) {
                 $sentence = array_unique($matchesClass[1]);
                 $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
-                
             }
             
             if (!empty($matchesAdminClass[1])) {
