@@ -12,4 +12,4 @@ jobs:
       - name: php-cs-fixer default
         uses: prestashopcorp/github-action-php-cs-fixer@master
         with:
-            other-cmds: /github/workspace/src --dry-run --diff --using-cache=no --diff-format udiff --rules=@PSR2
+            other-cmds: --dry-run --diff --using-cache=no --diff-format udiff --rules=@PSR2
