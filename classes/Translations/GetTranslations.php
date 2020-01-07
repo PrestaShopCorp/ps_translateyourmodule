@@ -105,7 +105,7 @@ class GetTranslations
      */
     public function fillWithExisting($translations)
     {
-        $translate = new \Translate();
+        $translate = new TranslateOverride();
         $checkFile = new CheckFile();
 
         $moduleInstance = \Module::getInstanceByName($this->getModuleName());
@@ -125,6 +125,7 @@ class GetTranslations
             foreach ($translations['translations'] as &$m) {
                 $m['languages'][$isoLang] = [];
                 foreach ($m['matches'] as $id => $sentence) {
+                    
                     $locale = \Language::getLocaleByIso($isoLang);
 
                     if (false === $locale) {
@@ -140,7 +141,7 @@ class GetTranslations
                         false,
                         $locale,
                         true
-                    );
+                    );                    
                 }
             }
         }
