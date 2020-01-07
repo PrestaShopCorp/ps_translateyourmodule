@@ -1,0 +1,11 @@
+parameters:
+	bootstrap: tests/phpstan/bootstrap.php
+	paths:
+		- classes
+		- controllers
+		- ps_translateyourmodule.php
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+
+
+	level: 5
