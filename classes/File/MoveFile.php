@@ -22,7 +22,7 @@ namespace PrestaShop\Module\PsTranslateYourModule\File;
 
 class MoveFile
 {
-    const SANDBOX_PATH = _PS_CACHE_DIR_.'sandbox/';
+    const SANDBOX_PATH = _PS_CACHE_DIR_ . 'sandbox/';
 
     protected $filePath;
     protected $fileName;

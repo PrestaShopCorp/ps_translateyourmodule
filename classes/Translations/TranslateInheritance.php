@@ -35,7 +35,7 @@ namespace PrestaShop\Module\PsTranslateYourModule\Translations;
 class TranslateInheritance
 {
     /**
-     * Get a translation for a module. 
+     * Get a translation for a module.
      *
      * @param string|Module $module
      * @param string $originalString
@@ -61,7 +61,7 @@ class TranslateInheritance
     ) {
         global $_MODULE, $_LANGADM;
 
-        static $langCache = array();
+        static $langCache = [];
 
         $name = $module->name;
 
@@ -73,7 +73,7 @@ class TranslateInheritance
             $iso = \Context::getContext()->language->iso_code;
         }
 
-        $filesByPriority = array(
+        $filesByPriority = [
             // PrestaShop 1.5 translations
             _PS_MODULE_DIR_ . $name . '/translations/' . $iso . '.php',
             // PrestaShop 1.4 translations
@@ -81,7 +81,7 @@ class TranslateInheritance
             // Translations in theme
             _PS_THEME_DIR_ . 'modules/' . $name . '/translations/' . $iso . '.php',
             _PS_THEME_DIR_ . 'modules/' . $name . '/' . $iso . '.php',
-        );
+        ];
         foreach ($filesByPriority as $file) {
             if (file_exists($file)) {
                 include_once $file;
@@ -139,9 +139,9 @@ class TranslateInheritance
         }
 
         if (!is_array($sprintf) && null !== $sprintf) {
-            $sprintf_for_trans = array($sprintf);
+            $sprintf_for_trans = [$sprintf];
         } elseif (null === $sprintf) {
-            $sprintf_for_trans = array();
+            $sprintf_for_trans = [];
         } else {
             $sprintf_for_trans = $sprintf;
         }

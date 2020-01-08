@@ -82,7 +82,7 @@ class ps_translateyourmodule extends Module
         Media::addJsDef([
             'ajax_controller_url' => $this->context->link->getAdminLink(self::AJAX_CONTROLLER_NAME),
             'ajax_controller_name' => self::AJAX_CONTROLLER_NAME,
-            'mimetype_xlsx' => self::MIME_TYPE_EXPECTED_XLSX
+            'mimetype_xlsx' => self::MIME_TYPE_EXPECTED_XLSX,
         ]);
 
         $jsFile = [
