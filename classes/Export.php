@@ -65,7 +65,7 @@ class Export
     /**
      * Set the data in the Spreadsheet
      *
-     * @param Spreadsheet $sheet
+     * @param Worksheet $sheet
      * @param array $languages
      *
      * @return void
@@ -84,7 +84,7 @@ class Export
      *
      * @return void
      */
-    private function setHeader($sheet, array $languages)
+    private function setHeader(Spreadsheet $sheet, array $languages)
     {
         $totalLanguages = count($languages);
 
@@ -110,7 +110,7 @@ class Export
      *
      * @return void
      */
-    private function setBody($sheet, array $languages)
+    private function setBody(Spreadsheet $sheet, array $languages)
     {
         $translations = $this->getModuleTranslations();
         $totalLanguages = count($languages);

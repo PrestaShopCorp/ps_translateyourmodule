@@ -185,7 +185,7 @@ class GetTranslations
     /**
      * Get File Name
      *
-     * @param SplFileInfo $fileInfo
+     * @param SplFileInfo
      *
      * @return string
      */

@@ -51,7 +51,7 @@ class Import
     /**
      * Imports translations from Translation's file
      *
-     * @return void
+     * @return void|array
      */
     public function importTranslations()
     {
