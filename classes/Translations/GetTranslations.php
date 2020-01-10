@@ -26,8 +26,8 @@ use PrestaShop\Module\PsTranslateYourModule\Translations\TranslationsCode;
 class GetTranslations
 {
     const REGEX_TPL = "/{l s=['\"]((?=\S)[^}]+)['\"] mod='[a-z_]+'.*}/U";
-    const REGEX_CLASS = "/this->l\('([^']+)'(?:,\s*'([^']+)')?\)/m";
-    const REGEX_ADMIN_CLASS = "/this->module->l\(\s*'([^']+)'(?:,\s*'([^']+)'\s*)?\)/m";
+    const REGEX_CLASS = "/this->l\(\s*'(.+?)'(?:,\s*'(.+?)'\s*)?\)/m";
+    const REGEX_ADMIN_CLASS = "/this->module->l\(\s*'(.+?)'(?:,\s*'(.+?)'\s*)?\)/m";
 
     protected $moduleName;
     protected $modulePath;
