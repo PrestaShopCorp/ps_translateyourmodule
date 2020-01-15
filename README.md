@@ -11,6 +11,17 @@ Also, we can import a CSV file to import all the translations we want.
 * Import new translations
 * Export the translation's folder in a ZIP
 
+## PHP stan HowTo
+To use PHP Stan locally, run the following commands :
+```sh
+$ docker run -tid --rm -v ps-volume:/var/www/html --name temp-ps prestashop/prestashop:1.7
+$ docker run --rm --volumes-from temp-ps -v $PWD:/$MODULE_LOCAL_PATH/ps_translateyourmodule
+ -e _PS_ROOT_DIR_=/var/www/html --workdir=/$MODULE_LOCAL_PATH/ps_translateyourmodule phpstan/phpstan:0.11.19 analyse --configuration=/$MODULE_LOCAL_PATH/ps_translateyo
+urmodule/tests/phpstan/phpstan.neon
+```
+
+`MODULE_LOCAL_PATH` is the path to your module.
+
 ## Contributing
 
 PrestaShop modules are open source extensions to the PrestaShop e-commerce solution. Everyone is welcome and even encouraged to contribute with their own improvements.

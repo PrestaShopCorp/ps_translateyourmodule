@@ -37,7 +37,7 @@ class TranslateInheritance
     /**
      * Get a translation for a module.
      *
-     * @param string|Module $module
+     * @param string|\Module $module
      * @param string $originalString
      * @param string $source
      * @param null $sprintf
@@ -46,8 +46,6 @@ class TranslateInheritance
      * @param bool $fallback [default=true] If true, this method falls back to the new translation system if no translation is found
      *
      * @return mixed|string
-     *
-     * @throws Exception
      */
     public static function getModuleTranslation(
         $module,
@@ -120,9 +118,9 @@ class TranslateInheritance
             }
 
             if (
-                $sprintf !== null &&
-                (!is_array($sprintf) || !empty($sprintf)) &&
-                !(count($sprintf) === 1 && isset($sprintf['legacy']))
+                $sprintf !== null
+                && (!is_array($sprintf) || !empty($sprintf))
+                && !(count($sprintf) === 1 && isset($sprintf['legacy']))
             ) {
                 $ret = \Translate::checkAndReplaceArgs($ret, $sprintf);
             }

@@ -152,7 +152,7 @@ class Zip
     /**
      * getArchiveName
      *
-     * @return void
+     * @return string
      */
     public function getArchiveName()
     {
@@ -174,7 +174,7 @@ class Zip
     /**
      * getFolderToZip
      *
-     * @return void
+     * @return string
      */
     public function getFolderToZip()
     {

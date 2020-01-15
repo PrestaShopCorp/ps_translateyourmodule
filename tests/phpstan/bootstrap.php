@@ -57,6 +57,8 @@ $constantsToDefine = [
   '_PS_SSL_PORT_',
   '_THEME_NAME_',
   '_THEME_COL_DIR_',
+  '_PS_MODULE_DIR_',
+  '_PS_THEME_DIR_',
   '_PARENT_THEME_NAME_',
   '__PS_BASE_URI__',
   '_MODULE_DIR_',

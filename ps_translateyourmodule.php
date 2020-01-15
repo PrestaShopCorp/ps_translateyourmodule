@@ -46,6 +46,7 @@ class ps_translateyourmodule extends Module
     public $description;
     protected $css_path;
     protected $js_path;
+    protected $img_path;
     protected $modulePageConfiguration;
 
     /**

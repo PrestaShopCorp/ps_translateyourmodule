@@ -185,7 +185,7 @@ class GetTranslations
     /**
      * Get File Name
      *
-     * @param SplFileInfo
+     * @param \SplFileInfo $fileInfo
      *
      * @return string
      */
@@ -236,8 +236,6 @@ class GetTranslations
 
     /**
      * setModuleTranslationsPath
-     *
-     * @param string $moduleName
      */
     protected function setModuleTranslationsPath()
     {
