@@ -32,10 +32,10 @@ class AdminExportTranslationsController extends ModuleAdminController
     {
         $moduleName = \Tools::getValue('module_name', '');
         $exportType = \Tools::getValue('export_type', 'empty');
-        
+
         if (empty($moduleName)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename'])
+                ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename']]
             ));
         }
 
@@ -44,11 +44,11 @@ class AdminExportTranslationsController extends ModuleAdminController
 
         if (false === is_array($moduleStringsToTranslate)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation'])
+                ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation']]
             ));
         }
 
-        $languages = array();
+        $languages = [];
         $formatedTranslatedArray = $this->formatTranslationsArrayForExport($moduleStringsToTranslate);
 
         // Add translations text if we want to load existing translations
@@ -60,7 +60,7 @@ class AdminExportTranslationsController extends ModuleAdminController
 
         if (false === $formatedTranslatedArray) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation'])
+                ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation']]
             ));
         }
 
@@ -91,7 +91,7 @@ class AdminExportTranslationsController extends ModuleAdminController
                 $formatedArray[$fileName]['languages'] = $value['languages'];
             }
         }
-        
+
         return $formatedArray;
     }
 }

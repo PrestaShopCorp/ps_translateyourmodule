@@ -29,11 +29,11 @@ class ps_translateyourmodule extends Module
     const AJAX_CONTROLLER_NAME = 'AdminAjaxPsTranslateYourModule';
     const MIME_TYPE_EXPECTED_XLSX = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     const EXPECTED_EXTENSION = '.xlsx';
-    const FORM_ERROR_CODES = array(
+    const FORM_ERROR_CODES = [
         'modulename' => 0,
         'ziperror' => 1,
         'translation' => 2,
-    );
+    ];
 
     public $name;
     public $tab;
@@ -79,23 +79,23 @@ class ps_translateyourmodule extends Module
      */
     public function loadAsset()
     {
-        Media::addJsDef(array(
+        Media::addJsDef([
             'ajax_controller_url' => $this->context->link->getAdminLink(self::AJAX_CONTROLLER_NAME),
             'ajax_controller_name' => self::AJAX_CONTROLLER_NAME,
-            'mimetype_xlsx' => self::MIME_TYPE_EXPECTED_XLSX
-        ));
+            'mimetype_xlsx' => self::MIME_TYPE_EXPECTED_XLSX,
+        ]);
 
-        $jsFile = array(
+        $jsFile = [
             $this->js_path . 'admin/general.js',
             $this->js_path . 'admin/loadDropZone.js',
             $this->js_path . 'admin/dropzone.min.js',
-        );
+        ];
 
-        $cssFile = array(
+        $cssFile = [
             $this->css_path . 'admin/general.css',
             $this->css_path . 'admin/versions/17_style.css',
             $this->css_path . 'admin/dropzone.css',
-        );
+        ];
 
         $this->context->controller->addJS($jsFile);
         $this->context->controller->addCSS($cssFile, 'all');
@@ -110,16 +110,16 @@ class ps_translateyourmodule extends Module
     {
         $this->loadAsset();
 
-        $this->context->smarty->assign(array(
+        $this->context->smarty->assign([
             'modulesFoldersPath' => _MODULE_DIR_,
             'imagePath' => $this->img_path,
             'languagesList' => \Language::getLanguages(),
             'moduleList' => array_reverse(\Module::getModulesInstalled()),
-            'loadExportLink' => $this->context->link->getAdminLink('AdminExportTranslations', true, array(), array('export_type' => 'load')) . '&module_name=',
-            'emptyExportLink' => $this->context->link->getAdminLink('AdminExportTranslations', true, array(), array('export_type' => 'empty')) . '&module_name=',
+            'loadExportLink' => $this->context->link->getAdminLink('AdminExportTranslations', true, [], ['export_type' => 'load']) . '&module_name=',
+            'emptyExportLink' => $this->context->link->getAdminLink('AdminExportTranslations', true, [], ['export_type' => 'empty']) . '&module_name=',
             'downloadTranslationsZip' => $this->context->link->getAdminLink('AdminDownloadZip') . '&module_name=',
             'postError' => Tools::getValue('error_controller', false),
-        ));
+        ]);
 
         return $this->display(__FILE__, 'views/templates/admin/configure.tpl');
     }
@@ -131,17 +131,17 @@ class ps_translateyourmodule extends Module
      *
      * @return string
      */
-    public function getModulePageConfiguration(array $error = array())
+    public function getModulePageConfiguration(array $error = [])
     {
         $parameters = array_merge(
-            array('configure' => $this->name),
+            ['configure' => $this->name],
             $error
         );
-        
+
         return $this->context->link->getAdminLink(
             'AdminModules',
             true,
-            array(),
+            [],
             $parameters
         );
     }
@@ -173,11 +173,11 @@ class ps_translateyourmodule extends Module
      */
     public function setControllers()
     {
-        $this->controllers = array(
+        $this->controllers = [
             self::AJAX_CONTROLLER_NAME,
             'AdminExportTranslations',
             'AdminDownloadZip',
-        );
+        ];
     }
 
     /**

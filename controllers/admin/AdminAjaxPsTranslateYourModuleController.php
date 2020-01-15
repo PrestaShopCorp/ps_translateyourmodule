@@ -17,10 +17,9 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-
-use PrestaShop\Module\PsTranslateYourModule\Import;
 use PrestaShop\Module\PsTranslateYourModule\File\MoveFile;
 use PrestaShop\Module\PsTranslateYourModule\File\ReadXlsxFile;
+use PrestaShop\Module\PsTranslateYourModule\Import;
 use PrestaShop\Module\PsTranslateYourModule\Validate\ValidateFile;
 
 class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
@@ -36,11 +35,11 @@ class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
         $moduleName = \Tools::getValue('module', $this->module->name);
         $lang = \Tools::getValue('lang', ps_translateyourmodule::DEFAULT_LANGUAGE_ISO);
 
-        $urlParams = array(
+        $urlParams = [
             'type' => 'modules',
             'lang' => $lang,
             'module' => $moduleName,
-        );
+        ];
 
         echo $this->context->link->getLegacyAdminLink('AdminTranslations', true, $urlParams);
     }
@@ -63,7 +62,7 @@ class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
         if (empty($uploadedFile)) {
             throw new \PrestaShopException('Uploaded file can\'t be empty');
         }
-        
+
         if (false === $validateFile->validateModuleName($moduleName)) {
             throw new \PrestaShopException('Module doesn\'t exist');
         }
@@ -79,10 +78,10 @@ class AdminAjaxPsTranslateYourModuleController extends ModuleAdminController
         $ajaxStateReturned = empty($importErrors) ? 1 : 0;
 
         $this->ajaxDie(
-            json_encode(array(
+            json_encode([
                 'state' => $ajaxStateReturned,
                 'errors' => $importErrors,
-            ))
+            ])
         );
     }
 }

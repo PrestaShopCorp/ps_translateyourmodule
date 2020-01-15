@@ -17,9 +17,8 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-
 global $_MODULE;
-$_MODULE = array();
+$_MODULE = [];
 
 $_MODULE['<{ps_translateyourmodule}prestashop>ps_translateyourmodule_951e03c8541209738501377ab780a154'] = 'Traduis ton module';
 $_MODULE['<{ps_translateyourmodule}prestashop>ps_translateyourmodule_d9e553ee969b20c6f8033b10e2fe8a61'] = 'Permet d\'exporter les phrases nécessitant d\'être traduit et d\'en importer de nouvelles';

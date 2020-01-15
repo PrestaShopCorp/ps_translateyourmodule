@@ -46,7 +46,7 @@ class ReadXlsxFile
     public function getFileDataInArray()
     {
         $spreadsheet = IOFactory::load($this->getFilePath());
-        
+
         return $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
     }
 

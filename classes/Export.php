@@ -65,7 +65,7 @@ class Export
     /**
      * Set the data in the Spreadsheet
      *
-     * @param Spreadsheet $sheet
+     * @param Worksheet $sheet
      * @param array $languages
      *
      * @return void
@@ -84,13 +84,13 @@ class Export
      *
      * @return void
      */
-    private function setHeader($sheet, array $languages)
+    private function setHeader(Spreadsheet $sheet, array $languages)
     {
         $totalLanguages = count($languages);
 
         $sheet->setCellValue('A1', 'Module filename');
         $sheet->setCellValue('B1', 'From module');
-    
+
         // If multiple languages in $languages
         if ($totalLanguages > 0) {
             $cellAlphabetForLaguages = range('C', 'Z');
@@ -110,7 +110,7 @@ class Export
      *
      * @return void
      */
-    private function setBody($sheet, array $languages)
+    private function setBody(Spreadsheet $sheet, array $languages)
     {
         $translations = $this->getModuleTranslations();
         $totalLanguages = count($languages);
@@ -119,14 +119,13 @@ class Export
         // As header takes 1 line, the offsets begin at line 2
         $lineOffset = 2;
         $mainLineOffset = 2;
-         
-        foreach ($translations as $domainName => $domainTranslations) {
 
+        foreach ($translations as $domainName => $domainTranslations) {
             // No translations
             foreach ($domainTranslations['matches'] as $value) {
                 $sheet->setCellValue('A' . $mainLineOffset, $domainName);
                 $sheet->setCellValue('B' . $mainLineOffset, $value);
-                $mainLineOffset++;
+                ++$mainLineOffset;
             }
 
             // If translations already exist
@@ -138,10 +137,10 @@ class Export
                     foreach ($value as $sentence) {
                         // We set the line data
                         $sheet->setCellValue($cellAlphabetForLanguages[$langColIndex] . $lineOffset, $sentence);
-                        $lineOffset++;
+                        ++$lineOffset;
                     }
                     // We change the language column
-                    $langColIndex++;
+                    ++$langColIndex;
 
                     // If there is another language we set the lineOffset to the initialLineOffset.
                     if ($langColIndex < $totalLanguages) {
@@ -163,9 +162,9 @@ class Export
     private function saveFile($writer, $fileType)
     {
         header('Content-Type: application/vnd.ms-excel'); // generate excel file
-        header('Content-Disposition: attachment;filename="'. $this->getFileName() . $fileType . '"');
+        header('Content-Disposition: attachment;filename="' . $this->getFileName() . $fileType . '"');
         header('Cache-Control: max-age=0');
-        
+
         $writer->save('php://output');	// download file
     }
 

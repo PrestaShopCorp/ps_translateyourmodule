@@ -1,0 +1,12 @@
+parameters:
+	bootstrap: tests/phpstan/bootstrap.php
+	paths:
+		- classes
+		- controllers
+		- ps_translateyourmodule.php
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+		- '#Iterating over an object of an unknown class mysqli_result.#'
+		- '#Parameter \#1 \$module of method PrestaShop\Module\PsTranslateYourModule\Translations\TranslateInheritance::getModuleTranslation() expects PrestaShop\Module\PsTranslateYourModule\Translations\Module|string, Module given.#'
+
+	level: 5
