@@ -17,12 +17,11 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-
 use PrestaShop\Module\PsTranslateYourModule\Zip;
 
 class AdminDownloadZipController extends ModuleAdminController
 {
-    const SANDBOX_PATH = _PS_CACHE_DIR_.'sandbox/';
+    const SANDBOX_PATH = _PS_CACHE_DIR_ . 'sandbox/';
 
     /**
      * Construct initHeader
@@ -33,10 +32,10 @@ class AdminDownloadZipController extends ModuleAdminController
     public function initHeader()
     {
         $moduleName = Tools::getValue('module_name');
-        
+
         if (!$moduleName) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename'])
+                ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['modulename']]
             ));
         }
 
@@ -44,10 +43,10 @@ class AdminDownloadZipController extends ModuleAdminController
         $folderToZip = _PS_MODULE_DIR_ . $moduleName . '/translations/';
 
         $getZip = new Zip($archiveName, $folderToZip);
-        
+
         if (false === $getZip->createZip()) {
             Tools::Redirect($this->module->getModulePageConfiguration(
-                array('error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['ziperror'])
+                ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['ziperror']]
             ));
         }
 

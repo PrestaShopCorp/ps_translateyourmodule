@@ -1,0 +1,21 @@
+parameters:
+	bootstrap: tests/phpstan/bootstrap.php
+	paths:
+		- classes
+		- controllers
+		- ps_translateyourmodule.php
+	reportUnmatchedIgnoredErrors: false
+	excludes_analyse:
+		- classes/Translations/TranslateInheritance.php 
+	ignoreErrors:
+		- '#Property ps_translateyourmodule::\$version \(float\) does not accept string.#'
+		- '#Iterating over an object of an unknown class mysqli_result.#'
+		- '#Call to an undefined method Module::getModulePageConfiguration\(\).#'
+		- '#Instantiated class ZipArchive not found.#'
+		- '#Access to constant CREATE on an unknown class ZIPARCHIVE.#'  
+		- '#Call to method open\(\) on an unknown class ZipArchive.#'
+		- '#Call to method addFile\(\) on an unknown class ZipArchive.#'   
+		- '#Call to method close\(\) on an unknown class ZipArchive.#'
+		- '#Call to an undefined method Link::getLegacyAdminLink\(\).#'
+
+	level: 5

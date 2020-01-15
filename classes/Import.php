@@ -51,14 +51,14 @@ class Import
     /**
      * Imports translations from Translation's file
      *
-     * @return void
+     * @return void|array
      */
     public function importTranslations()
     {
         $languageTranslations = $this->prepareTranslationsForEachLanguage();
         $scriptToWriteInLanguageFile = $this->constructLanguagesForFiles($languageTranslations);
         $writeInFile = new WriteLanguageFile();
-        $errors = array();
+        $errors = [];
 
         foreach ($scriptToWriteInLanguageFile as $isoLang => $script) {
             $saveFile = $writeInFile->writeScript($this->getModuleName(), $isoLang, $script);
@@ -82,7 +82,7 @@ class Import
         $translations = $this->getTranslationsArray();
         $arrayFirstKey = array_key_first($translations);
         $columns = range('C', 'Z');
-        $languageTranslations = array();
+        $languageTranslations = [];
 
         // we set the 2 first key with the filesnames (domain) and en translations (to get the translation code later)
         $languageTranslations['filesname'] = array_column($translations, 'A');
@@ -111,7 +111,7 @@ class Import
     protected function constructLanguagesForFiles($translations)
     {
         $moduleName = $this->getModuleName();
-        $translationsToWriteInFile = array();
+        $translationsToWriteInFile = [];
         $translationsCode = new TranslationsCode();
 
         foreach ($translations as $lang => $languageSentences) {

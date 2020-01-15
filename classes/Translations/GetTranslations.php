@@ -21,7 +21,6 @@
 namespace PrestaShop\Module\PsTranslateYourModule\Translations;
 
 use PrestaShop\Module\PsTranslateYourModule\File\CheckFile;
-use PrestaShop\Module\PsTranslateYourModule\Translations\TranslationsCode;
 
 class GetTranslations
 {
@@ -76,12 +75,10 @@ class GetTranslations
                 $sentence = array_unique($matchesTpl[1]);
                 $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
             }
-            
             if (!empty($matchesClass[1])) {
                 $sentence = array_unique($matchesClass[1]);
                 $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
             }
-            
             if (!empty($matchesAdminClass[1])) {
                 $sentence = array_unique($matchesAdminClass[1]);
                 $translations[$filename]['matches'] = str_ireplace($searchDomainInSentence, '', $sentence);
@@ -90,10 +87,10 @@ class GetTranslations
 
         $translationsCode = new TranslationsCode();
 
-        return array(
+        return [
             'module_name' => $moduleName,
             'translations' => $translationsCode->getAllTranslationsCodes($translations, $moduleName),
-        );
+        ];
     }
 
     /**
@@ -125,7 +122,6 @@ class GetTranslations
             foreach ($translations['translations'] as &$m) {
                 $m['languages'][$isoLang] = [];
                 foreach ($m['matches'] as $id => $sentence) {
-                    
                     $locale = \Language::getLocaleByIso($isoLang);
 
                     if (false === $locale) {
@@ -164,7 +160,7 @@ class GetTranslations
             '<{' . $moduleName . '}prestashop>',
             '_' . md5($sentence),
         ];
-        
+
         return str_replace($removeString, '', $code);
     }
 
@@ -189,17 +185,17 @@ class GetTranslations
     /**
      * Get File Name
      *
-     * @param SplFileInfo $fileInfo
+     * @param \SplFileInfo $fileInfo
      *
      * @return string
      */
     public function getFileName(\SplFileInfo $fileInfo)
     {
         $path_parts = pathinfo($fileInfo);
-        
+
         return $path_parts['filename'];
     }
-    
+
     /**
      * setModuleName
      *
@@ -222,7 +218,6 @@ class GetTranslations
 
     /**
      * setModulePath
-     *
      */
     private function setModulePath()
     {
@@ -241,8 +236,6 @@ class GetTranslations
 
     /**
      * setModuleTranslationsPath
-     *
-     * @param string $moduleName
      */
     protected function setModuleTranslationsPath()
     {

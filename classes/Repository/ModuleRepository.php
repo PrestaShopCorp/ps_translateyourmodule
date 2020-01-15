@@ -30,7 +30,7 @@ class ModuleRepository
     public function getModulesInstalledList()
     {
         $list = \Db::getInstance()->executeS('SELECT m.name FROM `' . _DB_PREFIX_ . 'module` m ');
-        $modulesList = array();
+        $modulesList = [];
 
         foreach ($list as $key => $module) {
             $modulesList[] = $module['name'];

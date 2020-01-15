@@ -35,9 +35,9 @@ namespace PrestaShop\Module\PsTranslateYourModule\Translations;
 class TranslateInheritance
 {
     /**
-     * Get a translation for a module. 
+     * Get a translation for a module.
      *
-     * @param string|Module $module
+     * @param string|\Module $module
      * @param string $originalString
      * @param string $source
      * @param null $sprintf
@@ -46,8 +46,6 @@ class TranslateInheritance
      * @param bool $fallback [default=true] If true, this method falls back to the new translation system if no translation is found
      *
      * @return mixed|string
-     *
-     * @throws Exception
      */
     public static function getModuleTranslation(
         $module,
@@ -61,7 +59,7 @@ class TranslateInheritance
     ) {
         global $_MODULE, $_LANGADM;
 
-        static $langCache = array();
+        static $langCache = [];
 
         $name = $module->name;
 
@@ -73,7 +71,7 @@ class TranslateInheritance
             $iso = \Context::getContext()->language->iso_code;
         }
 
-        $filesByPriority = array(
+        $filesByPriority = [
             // PrestaShop 1.5 translations
             _PS_MODULE_DIR_ . $name . '/translations/' . $iso . '.php',
             // PrestaShop 1.4 translations
@@ -81,7 +79,7 @@ class TranslateInheritance
             // Translations in theme
             _PS_THEME_DIR_ . 'modules/' . $name . '/translations/' . $iso . '.php',
             _PS_THEME_DIR_ . 'modules/' . $name . '/' . $iso . '.php',
-        );
+        ];
         foreach ($filesByPriority as $file) {
             if (file_exists($file)) {
                 include_once $file;
@@ -120,9 +118,9 @@ class TranslateInheritance
             }
 
             if (
-                $sprintf !== null &&
-                (!is_array($sprintf) || !empty($sprintf)) &&
-                !(count($sprintf) === 1 && isset($sprintf['legacy']))
+                $sprintf !== null
+                && (!is_array($sprintf) || !empty($sprintf))
+                && !(count($sprintf) === 1 && isset($sprintf['legacy']))
             ) {
                 $ret = \Translate::checkAndReplaceArgs($ret, $sprintf);
             }
@@ -139,9 +137,9 @@ class TranslateInheritance
         }
 
         if (!is_array($sprintf) && null !== $sprintf) {
-            $sprintf_for_trans = array($sprintf);
+            $sprintf_for_trans = [$sprintf];
         } elseif (null === $sprintf) {
-            $sprintf_for_trans = array();
+            $sprintf_for_trans = [];
         } else {
             $sprintf_for_trans = $sprintf;
         }
