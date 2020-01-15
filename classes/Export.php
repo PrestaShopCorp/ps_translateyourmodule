@@ -65,12 +65,12 @@ class Export
     /**
      * Set the data in the Spreadsheet
      *
-     * @param Worksheet $sheet
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet
      * @param array $languages
      *
      * @return void
      */
-    private function setData($sheet, array $languages)
+    private function setData(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, array $languages)
     {
         $this->setHeader($sheet, $languages);
         $this->setBody($sheet, $languages);
@@ -79,12 +79,12 @@ class Export
     /**
      * Set the Header (2lines) in the Spreadsheet
      *
-     * @param Spreadsheet $sheet
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet
      * @param array $languages
      *
      * @return void
      */
-    private function setHeader(Spreadsheet $sheet, array $languages)
+    private function setHeader(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, array $languages)
     {
         $totalLanguages = count($languages);
 
@@ -105,12 +105,12 @@ class Export
     /**
      * Set the body in the Spreadsheet
      *
-     * @param Spreadsheet $sheet
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet
      * @param array $languages
      *
      * @return void
      */
-    private function setBody(Spreadsheet $sheet, array $languages)
+    private function setBody(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, array $languages)
     {
         $translations = $this->getModuleTranslations();
         $totalLanguages = count($languages);

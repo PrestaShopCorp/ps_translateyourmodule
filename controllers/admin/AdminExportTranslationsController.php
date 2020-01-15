@@ -30,8 +30,8 @@ class AdminExportTranslationsController extends ModuleAdminController
      */
     public function initHeader()
     {
-        $moduleName = \Tools::getValue('module_name', '');
-        $exportType = \Tools::getValue('export_type', 'empty');
+        $moduleName = Tools::getValue('module_name', '');
+        $exportType = Tools::getValue('export_type', 'empty');
 
         if (empty($moduleName)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
@@ -42,7 +42,7 @@ class AdminExportTranslationsController extends ModuleAdminController
         $moduleTranslations = new GetTranslations($moduleName);
         $moduleStringsToTranslate = $moduleTranslations->findTranslations();
 
-        if (false === is_array($moduleStringsToTranslate)) {
+        if (false == is_array($moduleStringsToTranslate)) {
             Tools::Redirect($this->module->getModulePageConfiguration(
                 ['error_controller' => ps_translateyourmodule::FORM_ERROR_CODES['translation']]
             ));
