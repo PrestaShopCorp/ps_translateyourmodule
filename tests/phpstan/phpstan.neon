@@ -15,6 +15,7 @@ parameters:
 		- '#Access to constant CREATE on an unknown class ZIPARCHIVE.#'  
 		- '#Call to method open\(\) on an unknown class ZipArchive.#'
 		- '#Call to method addFile\(\) on an unknown class ZipArchive.#'   
-		- '#Call to method close\(\) on an unknown class ZipArchive.#'  
+		- '#Call to method close\(\) on an unknown class ZipArchive.#'
+		- '#Call to an undefined method Link::getLegacyAdminLink\(\).#'
 
 	level: 5

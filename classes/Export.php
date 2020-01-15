@@ -57,7 +57,7 @@ class Export
         $spreadsheet = new Spreadsheet(); // instantiate Spreadsheet
         $writer = new Xlsx($spreadsheet); // instantiate Xlsx
         $sheet = $spreadsheet->getActiveSheet();
-        
+
         $this->setData($sheet, $languages);
         $this->saveFile($writer, '.xlsx');
     }
