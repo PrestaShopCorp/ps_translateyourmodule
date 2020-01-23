@@ -2,14 +2,20 @@
 
 ## About
 
-With this module we can export all the translatable sentences and words in a CSV file.
-Also, we can import a CSV file to import all the translations we want.
+With this module we can export all the translatable sentences and words in a XLSX file.
+Also, we can import a XLSX file to import all the translations we want.
 
 ## Actions 
 * Export the translatable translations
 * Export the translatable and translated sentences
 * Import new translations
 * Export the translation's folder in a ZIP
+
+## Composer
+Build this project :
+```sh
+$ composer install
+```
 
 ## PHP stan HowTo
 To use PHP Stan locally, run the following commands :
