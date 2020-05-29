@@ -82,7 +82,7 @@ class TranslateInheritance
         ];
         foreach ($filesByPriority as $file) {
             if (file_exists($file)) {
-                include_once $file;
+                require $file;
             }
         }
 
