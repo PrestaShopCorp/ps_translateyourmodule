@@ -95,7 +95,10 @@ class Import
             }
 
             $isoLang = $translations[$arrayFirstKey][$column];
-            $languageTranslations[$isoLang] = array_column($translations, $column);
+
+            if (null !== $isoLang) {
+                $languageTranslations[$isoLang] = array_column($translations, $column);
+            }
         }
 
         return $languageTranslations;
