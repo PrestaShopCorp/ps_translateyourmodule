@@ -199,7 +199,7 @@ class GetTranslations
     /**
      * setModuleName
      *
-     * @return string
+     * @return void
      */
     protected function setModuleName($moduleName)
     {

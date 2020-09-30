@@ -98,11 +98,16 @@ function resetModalView() {
     $('.import-success').hide();
 }
 
-$(document)
-    .ready(loadDropZone)
-    .on('click', '.import-start-select-manual', importManual)
-    .on('click', '.import-failure-details-action', failureDetails)
-    .on('click', '.import-failure-retry', retryUpload)
-    .on('click', '.modal-header button', resetModalView);
 
-$("#upload-child-modal").on("hidden.bs.modal", resetModalView);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    $('.import-start-select-manual').on('click', importManual);
+    $('.import-failure-details-action').on('click', failureDetails)
+    $('.import-failure-retry').on('click', retryUpload)
+    $('.modal-header button').on('click', resetModalView);
+    $("#upload-child-modal").on("hidden.bs.modal", resetModalView);
+
+    loadDropZone();
+});
+
