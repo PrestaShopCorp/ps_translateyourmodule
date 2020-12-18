@@ -52,6 +52,6 @@ class AdminDownloadZipController extends ModuleAdminController
 
         $getZip->downloadZip();
 
-        die();
+        exit();
     }
 }

@@ -24,11 +24,13 @@ use PrestaShop\Module\PsTranslateYourModule\File\WriteLanguageFile;
 use PrestaShop\Module\PsTranslateYourModule\Translations\TranslationsCode;
 
 if (!function_exists('array_key_first')) {
-    function array_key_first(array $arr) {
-        foreach($arr as $key => $unused) {
+    function array_key_first(array $arr)
+    {
+        foreach ($arr as $key => $unused) {
             return $key;
         }
-        return NULL;
+
+        return null;
     }
 }
 
@@ -140,9 +142,13 @@ class Import
                     continue;
                 }
 
+                if (empty($sentence)) {
+                    continue;
+                }
+
                 $sentenceCode = $translationsCode->getOneTranslationCode($translations['filesname'][$key], $translations['en'][$key], $moduleName);
                 // replace : ' to \'   but not   \' to \\'
-                $sentenceToWrite = preg_replace('/(?<!\\\\)\'/', '\\\'', $sentence);
+                $sentenceToWrite = preg_replace('/(?<!\\\\)\'/', '\\\'', stripcslashes($sentence));
                 $translationsToWriteInFile[$lang] .= self::CODE_BEGINS . $sentenceCode . self::CODE_ENDS . self::SENTENCE_BEGINS . $sentenceToWrite . self::SENTENCE_ENDS;
             }
         }
