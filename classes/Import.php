@@ -23,6 +23,15 @@ namespace PrestaShop\Module\PsTranslateYourModule;
 use PrestaShop\Module\PsTranslateYourModule\File\WriteLanguageFile;
 use PrestaShop\Module\PsTranslateYourModule\Translations\TranslationsCode;
 
+if (!function_exists('array_key_first')) {
+    function array_key_first(array $arr) {
+        foreach($arr as $key => $unused) {
+            return $key;
+        }
+        return NULL;
+    }
+}
+
 class Import
 {
     const TRANSLATION_FILE_BEGINS = "<?php\nglobal \$_MODULE;\n\$_MODULE = array();\n";
