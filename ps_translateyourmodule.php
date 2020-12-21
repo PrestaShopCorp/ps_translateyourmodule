@@ -58,7 +58,7 @@ class ps_translateyourmodule extends Module
     {
         $this->name = 'ps_translateyourmodule';
         $this->tab = 'other';
-        $this->version = '1.2.0';
+        $this->version = '1.3.0';
         $this->author = 'PrestaShop';
         $this->module_key = '';
         $this->author_address = '';
