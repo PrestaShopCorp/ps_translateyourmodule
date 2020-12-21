@@ -52,6 +52,7 @@ class TranslationsCode
      */
     public function getOneTranslationCode($domain, $sentence, $moduleName)
     {
+        $sentence = stripcslashes($sentence);
         $escapedSentence = preg_replace("/\\\*'/", "\'", $sentence);
         $translationCode = '<{' . $moduleName . '}prestashop>' . strtolower($domain) . '_' . md5($escapedSentence);
 
