@@ -66,7 +66,7 @@ class AdminExportTranslationsController extends ModuleAdminController
 
         (new Export($moduleName, $formatedTranslatedArray, $exportType))->xlsx($languages);
 
-        die();
+        exit();
     }
 
     /**
