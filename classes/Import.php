@@ -152,6 +152,7 @@ class Import
                 continue;
             }
 
+            $translationLines = [];
             $translationsToWriteInFile[$lang] = self::TRANSLATION_FILE_BEGINS;
 
             foreach ($languageSentences as $key => $sentence) {
@@ -165,6 +166,12 @@ class Import
                 }
 
                 $sentenceCode = $translationsCode->getOneTranslationCode($translations['filesname'][$key], $translations['en'][$key], $moduleName);
+                $translationLines[$sentenceCode] = $sentence;
+            }
+
+            ksort($translationLines);
+
+            foreach ($translationLines as $sentenceCode => $sentence) {
                 // replace : ' to \'   but not   \' to \\'
                 $sentenceToWrite = preg_replace('/(?<!\\\\)\'/', '\\\'', stripcslashes($sentence));
                 $translationsToWriteInFile[$lang] .= self::CODE_BEGINS . $sentenceCode . self::CODE_ENDS . self::SENTENCE_BEGINS . $sentenceToWrite . self::SENTENCE_ENDS;
