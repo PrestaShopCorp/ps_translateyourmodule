@@ -36,7 +36,25 @@ if (!function_exists('array_key_first')) {
 
 class Import
 {
-    const TRANSLATION_FILE_BEGINS = "<?php\nglobal \$_MODULE;\n\$_MODULE = array();\n";
+    const TRANSLATION_LICENSE = "/**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License version 3.0
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ */\n";
+    const TRANSLATION_FILE_BEGINS = "<?php\n" . self::TRANSLATION_LICENSE . "global \$_MODULE;\n\$_MODULE = [];\n";
     const CODE_BEGINS = "\n\$_MODULE['";
     const CODE_ENDS = '\'] = ';
     const SENTENCE_BEGINS = '\'';
@@ -134,6 +152,7 @@ class Import
                 continue;
             }
 
+            $translationLines = [];
             $translationsToWriteInFile[$lang] = self::TRANSLATION_FILE_BEGINS;
 
             foreach ($languageSentences as $key => $sentence) {
@@ -147,6 +166,12 @@ class Import
                 }
 
                 $sentenceCode = $translationsCode->getOneTranslationCode($translations['filesname'][$key], $translations['en'][$key], $moduleName);
+                $translationLines[$sentenceCode] = $sentence;
+            }
+
+            ksort($translationLines);
+
+            foreach ($translationLines as $sentenceCode => $sentence) {
                 // replace : ' to \'   but not   \' to \\'
                 $sentenceToWrite = preg_replace('/(?<!\\\\)\'/', '\\\'', stripcslashes($sentence));
                 $translationsToWriteInFile[$lang] .= self::CODE_BEGINS . $sentenceCode . self::CODE_ENDS . self::SENTENCE_BEGINS . $sentenceToWrite . self::SENTENCE_ENDS;
