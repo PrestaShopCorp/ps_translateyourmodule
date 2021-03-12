@@ -2,7 +2,7 @@
 <module>
     <name>ps_translateyourmodule</name>
     <displayName><![CDATA[Translate your module]]></displayName>
-    <version><![CDATA[1.3.0]]></version>
+    <version><![CDATA[1.4.0]]></version>
     <description><![CDATA[It allow to export all the sentences needed to be translated and to import it]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[other]]></tab>
