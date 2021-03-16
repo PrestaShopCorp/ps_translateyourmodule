@@ -53,9 +53,20 @@ class TranslationsCode
     public function getOneTranslationCode($domain, $sentence, $moduleName)
     {
         $sentence = stripcslashes($sentence);
-        $escapedSentence = preg_replace("/\\\*'/", "\'", $sentence);
-        $translationCode = '<{' . $moduleName . '}prestashop>' . strtolower($domain) . '_' . md5($escapedSentence);
+        $translationCode = '<{' . $moduleName . '}prestashop>' . strtolower($domain) . '_' . $this->getTranslationMd5($sentence);
 
         return $translationCode;
+    }
+
+    /**
+     * Escape then generate md5 from string
+     *
+     * @param string $sentence
+     *
+     * @return string
+     */
+    public function getTranslationMd5($sentence)
+    {
+        return md5(preg_replace("/\\\*'/", "\'", $sentence));
     }
 }

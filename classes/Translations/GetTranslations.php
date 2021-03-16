@@ -31,6 +31,8 @@ class GetTranslations
     protected $moduleName;
     protected $modulePath;
     protected $moduleTranslationsPath;
+    /** @var TranslationsCode */
+    protected $translationsCode;
 
     /**
      * __construct
@@ -44,6 +46,8 @@ class GetTranslations
         $this->setModuleName($moduleName);
         $this->setModulePath();
         $this->setModuleTranslationsPath();
+
+        $this->translationsCode = new TranslationsCode();
     }
 
     /**
@@ -85,11 +89,9 @@ class GetTranslations
             }
         }
 
-        $translationsCode = new TranslationsCode();
-
         return [
             'module_name' => $moduleName,
-            'translations' => $translationsCode->getAllTranslationsCodes($translations, $moduleName),
+            'translations' => $this->translationsCode->getAllTranslationsCodes($translations, $moduleName),
         ];
     }
 
@@ -128,6 +130,8 @@ class GetTranslations
                         continue;
                     }
 
+                    $sentence = stripcslashes($sentence);
+
                     // get the sentence translation
                     $m['languages'][$isoLang][] = $translate->getModuleTranslation(
                         $moduleInstance,
@@ -146,19 +150,18 @@ class GetTranslations
     }
 
     /**
-     * Get the translation domaine from the Code
+     * Get the translation domain from the Code
      *
-     * @param string $sentence
      * @param string $code
      *
      * @return string
      */
-    public function getDomain($sentence, $code)
+    private function getDomain($sentence, $code)
     {
         $moduleName = $this->getModuleName();
         $removeString = [
             '<{' . $moduleName . '}prestashop>',
-            '_' . md5($sentence),
+            '_' . $this->translationsCode->getTranslationMd5($sentence),
         ];
 
         return str_replace($removeString, '', $code);
