@@ -113,6 +113,7 @@ class Export
     private function setBody(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, array $languages)
     {
         $translations = $this->getModuleTranslations();
+        ksort($translations, SORT_STRING | SORT_FLAG_CASE);
         $totalLanguages = count($languages);
         $cellAlphabetForLanguages = range('C', 'Z');
 
